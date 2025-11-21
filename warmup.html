@@ -52,6 +52,39 @@
             font-size: 18px;
             margin-top: 8px;
         }
+
+        #timer-section {
+            margin-top: 50px;
+            padding: 20px;
+            background: #e6fff8;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        #display {
+            font-size: 48px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 18px;
+            width: 160px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 8px;
+            border: none;
+            background-color: #09ebc5;
+        }
     </style>
 </head>
 
@@ -126,11 +159,76 @@
         <p>Full-body warm-up movement. Step out side-to-side if low impact is needed. <b>(30–40 seconds)</b></p>
     </div>
 
+    <div id="timer-section">
+        <h2>⏳ Countdown Timer</h2>
+
+        <input type="number" id="secondsInput" placeholder="Enter seconds">
+
+        <div id="display">00:00</div>
+
+        <button onclick="startCountdown()">Start</button>
+        <button onclick="stopCountdown()">Stop</button>
+        <button onclick="resetCountdown()">Reset</button>
+    </div>
+
 </section>
 
 <footer>
     <p>© 2025 FitPlus+. All rights reserved.</p>
 </footer>
+
+<script>
+    let timeLeft = 0;
+    let interval = null;
+
+    function formatTime(sec) {
+        let m = Math.floor(sec / 60);
+        let s = sec % 60;
+
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
+
+        return `${m}:${s}`;
+    }
+
+    function startCountdown() {
+        if (interval !== null) return;
+
+        timeLeft = parseInt(document.getElementById("secondsInput").value);
+
+        if (isNaN(timeLeft) || timeLeft <= 0) {
+            alert("Please enter valid seconds!");
+            return;
+        }
+
+        document.getElementById("display").textContent = formatTime(timeLeft);
+
+        interval = setInterval(() => {
+            timeLeft--;
+
+            document.getElementById("display").textContent = formatTime(timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(interval);
+                interval = null;
+                document.getElementById("display").textContent = "00:00";
+                alert("Time's up!");
+            }
+        }, 1000);
+    }
+
+    function stopCountdown() {
+        clearInterval(interval);
+        interval = null;
+    }
+
+    function resetCountdown() {
+        stopCountdown();
+        timeLeft = 0;
+        document.getElementById("display").textContent = "00:00";
+        document.getElementById("secondsInput").value = "";
+    }
+</script>
 
 </body>
 </html>
