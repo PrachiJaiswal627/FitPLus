@@ -125,44 +125,5 @@ footer {
     font-weight: bold;
 
 }
-/* ---------------------------
-   PROGRAM / CARD RESPONSIVE
---------------------------- */
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
 
-.card {
-  width: 320px;
-  max-width: 100%;
-}
 
-/* ---------------------------
-    TEXT RESPONSIVE
---------------------------- */
-h1, h2, h3, h4 {
-  word-wrap: break-word;
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 26px;
-  }
-  h2 {
-    font-size: 22px;
-  }
-  p {
-    font-size: 14px;
-  }
-}
-
-/* ---------------------------
-    FOOTER RESPONSIVE
---------------------------- */
-footer {
-  text-align: center;
-  padding: 20px;
-}
