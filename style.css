@@ -125,30 +125,63 @@ footer {
     font-weight: bold;
 
 }
-/* RESPONSIVE DESIGN */
-
-/* MOBILE PHONES */
 @media (max-width: 600px) {
 
-    .navbar a {
-        display: block;
-        margin: 10px 0;
-    }
-
-    .exercise-container {
+    header {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
+        padding: 15px 20px;
     }
 
-    .exercise-card {
-        width: 90%;
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+        padding: 0;
     }
-}
 
-/* TABLETS */
+    .hero {
+        height: auto;
+        padding: 40px 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 40px;
+    }
+
+    .hero-text p {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .section {
+        padding: 40px 20px;
+    }
+
+    .program-list,
+    .workout-list {
+        grid-template-columns: 1fr;
+    }
 @media (max-width: 900px) {
-    .exercise-card {
-        width: 45%;
+    
+    header {
+        padding: 20px 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 55px;
+    }
+
+    .hero-text p {
+        font-size: 25px;
+    }
+
+    .program-list,
+    .workout-list {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
