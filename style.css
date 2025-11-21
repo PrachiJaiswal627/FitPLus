@@ -125,5 +125,31 @@ footer {
     font-weight: bold;
 
 }
+/* RESPONSIVE DESIGN */
+
+/* MOBILE PHONES */
+@media (max-width: 600px) {
+
+    .navbar a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .exercise-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .exercise-card {
+        width: 90%;
+    }
+}
+
+/* TABLETS */
+@media (max-width: 900px) {
+    .exercise-card {
+        width: 45%;
+    }
+}
 
 
